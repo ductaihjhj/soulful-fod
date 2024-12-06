@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Đặt Bàn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined&display=swap"
+    />
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="./assets/booking.css" />
+  </head>
+  <body>
+    <header>
+        <div class="logo">
+            <img src="assets/img/soulful-food-logo.png" alt="Soulful Food Logo" class="logo-img" />
+          </div>
+      <nav>
+        <a href="/index.html"
+          ><span class="material-symbols-outlined">home</span> Home</a
+        >
+        <a href="/menu.html"
+          ><span class="material-symbols-outlined">menu_book</span> Menu</a
+        >
+        <a href="#"
+          ><span class="material-symbols-outlined">search</span> Search</a
+        >
+      </nav>
+    </header>
+    <main>
+      <section class="booking-page">
+        <h1>ĐẶT BÀN</h1>
+        <form id="booking-form">
+          <label for="name">Họ và Tên:</label>
+          <input
+            type="text"
+            id="name"
+            placeholder="Nhập tên của bạn"
+            required
+          />
+          <label for="phone">Số Điện Thoại:</label>
+          <input
+            type="tel"
+            id="phone"
+            placeholder="Nhập số điện thoại"
+            required
+          />
+          <label for="date">Ngày Giờ:</label>
+          <input type="datetime-local" id="date" required />
+          <label for="people">Số Người:</label>
+          <input type="number" id="people" placeholder="Số người" required />
+          <button id="submit-btn" type="submit">Xác Nhận</button>
+          <div id="success-message" class="hidden">
+            Đặt bàn thành công! Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.
+          </div>
+          <div id="error-message" class="hidden"></div>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <div class="footer-container">
+        <!-- Dịch Vụ -->
+        <div class="services">
+          <h3>Dịch vụ của chúng tôi</h3>
+          <ul>
+            <li>Đặt hàng trực tuyến</li>
+            <li>Chăm sóc khách hàng</li>
+            <li>Cấp độ thành viên</li>
+            <li>Dịch vụ giao hàng</li>
+          </ul>
+        </div>
+        <!-- Liên hệ -->
+        <div class="contact-info">
+          <h3>Theo dõi chúng tôi</h3>
+          <ul>
+            <li>
+              <a href="https://www.facebook.com/ducwtaif.frv" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/ducwtaif/" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <!-- Copyright -->
+      <div class="copyright">
+        <p>&copy; 2024 ducwtaif thuộc quyền sở hữu.</p>
+      </div>
+    </footer>
+  </body>
+</html>
+<script>
+    document.getElementById("submit-btn").addEventListener("click", function (e) {
+      e.preventDefault(); // Ngăn gửi form thực tế
+  
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const date = document.getElementById("date").value.trim();
+      const people = document.getElementById("people").value.trim();
+  
+      const errorMessage = document.getElementById("error-message");
+      const successMessage = document.getElementById("success-message");
+  
+      // Kiểm tra nếu các trường bị bỏ trống
+      if (!name || !phone || !date || !people) {
+        errorMessage.textContent = "Vui lòng điền đầy đủ thông tin trước khi xác nhận!";
+        errorMessage.classList.add("visible");
+        successMessage.classList.remove("visible");
+        return;
+      }
+  
+      // Nếu đầy đủ thông tin, hiển thị thông báo thành công
+      errorMessage.classList.remove("visible");
+      successMessage.textContent = "Đặt bàn thành công! Cảm ơn bạn đã sử dụng dịch vụ của chúng tôi.";
+      successMessage.classList.add("visible");
+  
+      // Xóa thông báo sau 5 giây
+      setTimeout(() => {
+        successMessage.classList.remove("visible");
+      }, 5000);
+  
+      // Xóa nội dung form
+      document.getElementById("booking-form").reset();
+    });
+  </script>  
+  

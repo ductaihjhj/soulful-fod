@@ -1,0 +1,232 @@
+/* Menu và Booking chung */
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(to bottom, #f8f8f8, #eaeaea);
+  margin: 0;
+  color: #333;
+}
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("./img/bg.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  filter: blur(8px);
+  z-index: -1;
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #6b6424;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #6b6424;
+  color: white;
+  position: relative; /* Để logo có thể được định vị tuyệt đối */
+}
+
+/* Logo chính */
+header .logo {
+  position: absolute; /* Định vị logo ra khỏi luồng bình thường */
+  top: 50%; /* Đặt logo ở giữa chiều cao header */
+  left: 20px; /* Khoảng cách từ mép trái */
+  transform: translateY(-50%); /* Căn giữa theo trục Y */
+  z-index: 10; /* Đảm bảo logo nằm trên cùng */
+}
+
+header .logo .logo-img {
+  width: 150px; /* Kích thước lớn hơn */
+  height: auto;
+  object-fit: contain; /* Giữ tỷ lệ logo */
+}
+
+nav {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    padding-left: 170px; /* Tạo khoảng trống để không che logo */
+  }
+  
+  nav a {
+    display: flex;
+    align-items: center;
+    margin: 0 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+  }
+  
+  nav .material-symbols-outlined {
+    margin-right: 8px;
+    font-size: 1.5em;
+  }
+  
+
+/* Menu Page */
+.menu-page {
+  padding: 40px 20px;
+  background-color: #ffffff;
+}
+
+.menu-page p {
+  text-align: center;
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.menu-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  justify-content: center;
+}
+
+.menu-item {
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.menu-item img {
+  width: 100%;
+  max-width: 200px;
+  margin-bottom: 15px;
+  border-radius: 10px;
+}
+
+.menu-item h3 {
+  font-size: 1.4em;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.menu-item span {
+  font-size: 1.2em;
+  color: #8e8756;
+  font-weight: bold;
+}
+
+.menu-item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Booking Page */
+.booking-page {
+  padding: 50px 20px;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.booking-page h1 {
+  text-align: center;
+  color: #6b6424;
+}
+/* .booking-page h1:hover {
+
+} */
+#booking-form {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#booking-form label {
+  display: block;
+  font-size: 1.2em;
+  color: #555;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+#booking-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+#booking-form button {
+  width: 100%;
+  padding: 15px;
+  background-color: #8e8756;
+  color: white;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+#booking-form button:hover {
+  background-color: #6b6424;
+  transform: translateY(-3px);
+}
+
+/* Footer */
+/* footer {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+} */
+
+footer p {
+  margin: 0;
+  font-size: 0.9em;
+  color: #aaa;
+}
+/* Thông báo thành công */
+#success-message {
+  display: none;
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#success-message.visible {
+  display: block;
+}
+/* Thông báo lỗi */
+#error-message {
+  display: none;
+  margin-top: 20px;
+  padding: 15px 20px;
+  background-color: #f8d7da;
+  color: #721c24;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+#error-message.visible {
+  display: block;
+}
